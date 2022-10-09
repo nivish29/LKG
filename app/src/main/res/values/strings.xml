@@ -18,4 +18,10 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="open">Open Navigation drawer</string>
+    <string name="close">close Navigation drawer</string>
+    <string name="title_activity_all_projects">all_projects</string>
+    <string name="title_activity_pending">pending</string>
+
+
 </resources>

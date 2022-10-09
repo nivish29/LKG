@@ -6,15 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".Dashboard">
 
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/drawer_layout">
+
         <com.google.android.material.navigation.NavigationView
+            android:id="@+id/nav_view"
             android:layout_width="276dp"
             android:layout_height="686dp"
-            app:layout_constraintBottom_toTopOf="@+id/bottom_nav"
+            android:layout_gravity="start"
             app:headerLayout="@layout/header"
-            app:menu="@menu/nav_item"
-            android:id="@+id/nav_view"
-            android:layout_gravity="start"/>
-
+            app:layout_constraintBottom_toTopOf="@+id/bottom_nav"
+            app:menu="@menu/nav_item" />
+    </androidx.drawerlayout.widget.DrawerLayout>
 
 
 

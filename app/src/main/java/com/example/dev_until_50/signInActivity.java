@@ -107,4 +107,7 @@ public class signInActivity extends AppCompatActivity {
                 });
 
     }
+    public void signout(){
+        FirebaseAuth.getInstance().signOut();
+    }
 }
