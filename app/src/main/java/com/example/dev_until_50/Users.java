@@ -2,7 +2,15 @@ package com.example.dev_until_50;
 
 public class Users {
 
-    private String UserId, name,emailid;
+    private String UserId, name,emailid,dp;
+
+    public String getDp() {
+        return dp;
+    }
+
+    public void setDp(String dp) {
+        this.dp = dp;
+    }
 
     public Users(){
 

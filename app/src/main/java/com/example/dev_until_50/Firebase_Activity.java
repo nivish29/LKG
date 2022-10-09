@@ -22,22 +22,21 @@ public class Firebase_Activity extends AppCompatActivity {
 
         mAuth=FirebaseAuth.getInstance();
         Handler handler = new Handler();
-        Intent sign_in_intent = new Intent(this, signInActivity.class);
+        Intent sign_in_intent = new Intent(this, Dashboard.class);
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
-        handler.postDelayed(new Runnable() {
-            // check if user already logged in or not
-            public void run() {
+//        handler.postDelayed(new Runnable() {
+//            // check if user already logged in or not
+//            public void run() {
 
                     if (currentUser!= null) {
                         Log.d("Hello", "Logged in");
-
+                        startActivity(sign_in_intent);
                     } else {
                         Log.d("Hello", "Not Logged in");
-                        startActivity(sign_in_intent);
                     }
 
             }
-        }, 2000);
-    }
+//        }, 2000);
+//    }
 }

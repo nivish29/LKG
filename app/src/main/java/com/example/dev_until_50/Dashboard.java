@@ -8,21 +8,33 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.RadioButton;
+import android.widget.TextView;
 
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
+import java.io.Console;
 
 public class Dashboard extends AppCompatActivity {
 
     FloatingActionButton add_project_fab;
+    GoogleSignInClient mGoogleSignInClient;
 
     DrawerLayout drawer_layout;
     NavigationView navigationView;
     ActionBarDrawerToggle drawerToggle;
+    FirebaseAuth mAuth;
+
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -36,6 +48,15 @@ public class Dashboard extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+
+
+        mAuth=FirebaseAuth.getInstance();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        Log.d("Hello",currentUser.getDisplayName());
+
+        TextView name=findViewById(R.id.nav_name_txt);
+
+        name.setText((String)currentUser.getDisplayName());
 
         add_project_fab=findViewById(R.id.add_project_fab);
         drawer_layout=findViewById(R.id.drawer_layout);
@@ -57,8 +78,8 @@ public class Dashboard extends AppCompatActivity {
                         startActivity(pendingint);
 
                     case R.id.Logout:
-                        signInActivity ok=new signInActivity();
-                        ok.signout();
+                        Log.d("Hello","Logged out clicked");
+
                 }
                 return false;
             }

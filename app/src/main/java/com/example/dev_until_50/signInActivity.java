@@ -46,7 +46,14 @@ public class signInActivity extends AppCompatActivity {
                 signIn();
             }
         });
-
+        Button btn2=findViewById(R.id.signup_btn);
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                signOut();
+            }
+        });
+        getSupportActionBar().hide();
 
 // ...
 // Initialize Firebase Auth
@@ -89,14 +96,12 @@ public class signInActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
 
-                            Intent kuchbhi = new Intent(signInActivity.this,Dashboard.class);
-                            startActivity(kuchbhi);
-
                             FirebaseUser user =auth.getCurrentUser();
                             Users users = new Users();
                             users.setUserId(user.getUid());
                             users.setName(user.getDisplayName());
                             users.setEmailid(user.getEmail());
+                            Intent kuchbhi = new Intent(signInActivity.this,Dashboard.class);
 
                             database.getReference().child("Users").child(user.getUid()).setValue(users);
                         }
@@ -107,7 +112,19 @@ public class signInActivity extends AppCompatActivity {
                 });
 
     }
-    public void signout(){
-        FirebaseAuth.getInstance().signOut();
+    public void signOut() {
+
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build();
+        GoogleSignInClient googleSignInClient = GoogleSignIn.getClient(this, gso);
+        googleSignInClient.signOut()
+                .addOnCompleteListener(this, new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        Log.d("Hello","Signed_out");
+                    }
+                });
     }
 }
