@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".Dashboard">
 
+        <com.google.android.material.navigation.NavigationView
+            android:layout_width="276dp"
+            android:layout_height="686dp"
+            app:layout_constraintBottom_toTopOf="@+id/bottom_nav"
+            app:headerLayout="@layout/header"
+            app:menu="@menu/nav_item"
+            android:id="@+id/nav_view"
+            android:layout_gravity="start"/>
+
+
+
+
 
     <com.ismaeldivita.chipnavigation.ChipNavigationBar
         android:id="@+id/bottom_nav"

@@ -51,7 +51,7 @@ public class signInActivity extends AppCompatActivity {
 // ...
 // Initialize Firebase Auth
         auth = FirebaseAuth.getInstance();
-        database = FirebaseDatabase.getInstance();
+        database=FirebaseDatabase.getInstance();
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
@@ -88,8 +88,12 @@ public class signInActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
+
+                            Intent kuchbhi = new Intent(signInActivity.this,Dashboard.class);
+                            startActivity(kuchbhi);
+
                             FirebaseUser user =auth.getCurrentUser();
-                            Users users= new Users();
+                            Users users = new Users();
                             users.setUserId(user.getUid());
                             users.setName(user.getDisplayName());
                             users.setEmailid(user.getEmail());
