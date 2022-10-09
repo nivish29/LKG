@@ -24,12 +24,14 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class signInActivity extends AppCompatActivity {
 
     GoogleSignInClient mGoogleSignInClient;
     FirebaseAuth auth;
     Button googlesignup_btn;
+    FirebaseDatabase database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +51,7 @@ public class signInActivity extends AppCompatActivity {
 // ...
 // Initialize Firebase Auth
         auth = FirebaseAuth.getInstance();
+        database = FirebaseDatabase.getInstance();
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
@@ -86,6 +89,12 @@ public class signInActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             FirebaseUser user =auth.getCurrentUser();
+                            Users users= new Users();
+                            users.setUserId(user.getUid());
+                            users.setName(user.getDisplayName());
+                            users.setEmailid(user.getEmail());
+
+                            database.getReference().child("Users").child(user.getUid()).setValue(users);
                         }
                         else {
 
