@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    app:cnb_unselectedColor="#fff"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/home"
+        android:icon="@drawable/ic_project_icon"
+        app:cnb_iconColor="@color/white"
+        app:cnb_textColor='#fff'
+        app:cnb_backgroungColor="#ff785b"
+        android:title="Project" />
+
+    <item
+        android:id="@+id/Form"
+        android:icon="@drawable/ic_page_file_icon"
+        app:cnb_iconColor="@color/white"
+        app:cnb_textColor='#fff'
+        app:cnb_backgroungColor="#ff785b"
+        android:title="Form" />
+
+
+
+</menu>
