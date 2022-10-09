@@ -12,9 +12,11 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -54,17 +56,24 @@ public class Dashboard extends AppCompatActivity {
         FirebaseUser currentUser = mAuth.getCurrentUser();
         Log.d("Hello",currentUser.getDisplayName());
 
-        TextView name=findViewById(R.id.nav_name_txt);
-
-        name.setText((String)currentUser.getDisplayName());
 
         add_project_fab=findViewById(R.id.add_project_fab);
         drawer_layout=findViewById(R.id.drawer_layout);
+
         navigationView =findViewById(R.id.nav_view);
+        View headerView=navigationView.getHeaderView(0);
+        TextView name=(TextView)headerView.findViewById(R.id.nav_name_txt);
+        name.setText(currentUser.getDisplayName());
+
         drawerToggle=new ActionBarDrawerToggle(this,drawer_layout,R.string.open,R.string.close);
         drawer_layout.addDrawerListener(drawerToggle);
         drawerToggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        Glide.with(this).load(currentUser.getPhotoUrl().toString())
+                .placeholder(R.drawable.avatar)
+                .into((ImageView) headerView.findViewById(R.id.nav_dp));
+
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {

@@ -22,7 +22,8 @@ public class Firebase_Activity extends AppCompatActivity {
 
         mAuth=FirebaseAuth.getInstance();
         Handler handler = new Handler();
-        Intent sign_in_intent = new Intent(this, Dashboard.class);
+        Intent Dashboard_intent = new Intent(this, Dashboard.class);
+        Intent Sign_up_intent=new Intent(this,signInActivity.class);
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
 //        handler.postDelayed(new Runnable() {
@@ -31,9 +32,10 @@ public class Firebase_Activity extends AppCompatActivity {
 
                     if (currentUser!= null) {
                         Log.d("Hello", "Logged in");
-                        startActivity(sign_in_intent);
+                        startActivity(Dashboard_intent);
                     } else {
                         Log.d("Hello", "Not Logged in");
+                        startActivity(Sign_up_intent);
                     }
 
             }

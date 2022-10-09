@@ -102,7 +102,7 @@ public class signInActivity extends AppCompatActivity {
                             users.setName(user.getDisplayName());
                             users.setEmailid(user.getEmail());
                             Intent kuchbhi = new Intent(signInActivity.this,Dashboard.class);
-
+                            startActivity(kuchbhi);
                             database.getReference().child("Users").child(user.getUid()).setValue(users);
                         }
                         else {
