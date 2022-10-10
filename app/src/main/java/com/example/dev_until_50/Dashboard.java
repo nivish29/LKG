@@ -31,6 +31,7 @@ public class Dashboard extends AppCompatActivity {
 
     FloatingActionButton add_project_fab;
     GoogleSignInClient mGoogleSignInClient;
+    ImageView nav_dp_header;
 
     DrawerLayout drawer_layout;
     NavigationView navigationView;
@@ -106,6 +107,14 @@ public class Dashboard extends AppCompatActivity {
             public void onClick(View v) {
                 Intent prdetails = new Intent(Dashboard.this,project_details.class);
                 startActivity(prdetails);
+            }
+        });
+
+        nav_dp_header.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent nav_to_ac_info = new Intent(Dashboard.this,Account_info.class);
+                startActivity(nav_to_ac_info);
             }
         });
     }

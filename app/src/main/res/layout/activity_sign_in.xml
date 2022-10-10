@@ -189,7 +189,7 @@
 
                 android:fontFamily="@font/amita"
                 android:text="terms and condition"
-                android:textColor="#FF0000"
+                android:textColor="#DF4C4C"
                 android:textSize="15dp"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -247,7 +247,7 @@
                 android:fontFamily="@font/amita"
                 android:text=" LOGIN"
                 android:layout_marginTop="10dp"
-                android:textColor="#FF0000"
+                android:textColor="#DF4C4C"
                 android:textSize="15dp"
                 android:textStyle="bold" />
         </LinearLayout>

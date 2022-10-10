@@ -86,7 +86,16 @@ public class project_details extends AppCompatActivity {
                 dp2.show();
             }
         });
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String projectname=title_pr_details.getText().toString();
+                String desc = short_desc.getText().toString();
+                String startdatestring= start_date_txt.getText().toString();
+                String Endstring= end_date_txt.getText().toString();
 
+            }
+        });
 
     }
 }
