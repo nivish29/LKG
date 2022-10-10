@@ -8,7 +8,7 @@
         android:icon="@drawable/ic_project_icon"
         app:cnb_iconColor="@color/white"
         app:cnb_textColor='#fff'
-        app:cnb_backgroundColor="#ff785b"
+        app:cnb_backgroundColor="#F9F0DB"
         android:title="Project" />
 
     <item

@@ -5,6 +5,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -28,6 +29,8 @@ import com.google.firebase.auth.FirebaseUser;
 import java.io.Console;
 
 public class Dashboard extends AppCompatActivity {
+
+    RecyclerView recyclerView;
 
     FloatingActionButton add_project_fab;
     GoogleSignInClient mGoogleSignInClient;
