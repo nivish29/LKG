@@ -19,10 +19,13 @@
         <entry key="..\:/Users/nihal/LKG/app/src/main/res/layout/activity_dashboard.xml" value="0.25" />
         <entry key="..\:/Users/nihal/LKG/app/src/main/res/layout/activity_firebase.xml" value="0.25" />
         <entry key="..\:/Users/nihal/LKG/app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="..\:/Users/nihal/LKG/app/src/main/res/layout/activity_project_details.xml" value="0.2359375" />
+        <entry key="..\:/Users/nihal/LKG/app/src/main/res/layout/activity_project_details.xml" value="0.264" />
         <entry key="..\:/Users/nihal/LKG/app/src/main/res/layout/activity_sign_in.xml" value="0.25" />
         <entry key="..\:/Users/nihal/LKG/app/src/main/res/layout/activity_user_details.xml" value="0.2359375" />
+        <entry key="..\:/Users/nihal/LKG/app/src/main/res/layout/content_all_projects.xml" value="0.25" />
+        <entry key="..\:/Users/nihal/LKG/app/src/main/res/layout/content_pending.xml" value="0.25" />
         <entry key="..\:/Users/nihal/LKG/app/src/main/res/layout/header.xml" value="0.24895833333333334" />
+        <entry key="..\:/Users/nihal/LKG/app/src/main/res/layout/row_project.xml" value="0.24895833333333334" />
         <entry key="..\:/Users/nihal/LKG/app/src/main/res/menu/menu_botton.xml" value="0.24895833333333334" />
         <entry key="..\:/Users/nihal/LKG/app/src/main/res/menu/menu_button.xml" value="0.24895833333333334" />
         <entry key="..\:/Users/nihal/LKG/app/src/main/res/menu/nav_item.xml" value="0.24895833333333334" />

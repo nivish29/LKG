@@ -100,6 +100,14 @@ public class Dashboard extends AppCompatActivity {
 
             }
         });
+
+        add_project_fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent prdetails = new Intent(Dashboard.this,project_details.class);
+                startActivity(prdetails);
+            }
+        });
     }
 
     @Override
@@ -112,4 +120,6 @@ public class Dashboard extends AppCompatActivity {
         }
 
     }
+
+
 }
