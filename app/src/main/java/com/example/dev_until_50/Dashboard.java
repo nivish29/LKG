@@ -32,6 +32,8 @@ public class Dashboard extends AppCompatActivity {
     FloatingActionButton add_project_fab;
     GoogleSignInClient mGoogleSignInClient;
 
+    ImageView nav_dp_header;
+
     DrawerLayout drawer_layout;
     NavigationView navigationView;
     ActionBarDrawerToggle drawerToggle;
@@ -52,6 +54,7 @@ public class Dashboard extends AppCompatActivity {
         setContentView(R.layout.activity_dashboard);
 
 
+
         mAuth=FirebaseAuth.getInstance();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         Log.d("Hello",currentUser.getDisplayName());
@@ -60,21 +63,35 @@ public class Dashboard extends AppCompatActivity {
         add_project_fab=findViewById(R.id.add_project_fab);
         drawer_layout=findViewById(R.id.drawer_layout);
 
-        navigationView =findViewById(R.id.nav_view);
-        View headerView=navigationView.getHeaderView(0);
-        TextView name=(TextView)headerView.findViewById(R.id.nav_name_txt);
-        name.setText(currentUser.getDisplayName());
 
         drawerToggle=new ActionBarDrawerToggle(this,drawer_layout,R.string.open,R.string.close);
         drawer_layout.addDrawerListener(drawerToggle);
         drawerToggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         Log.d("Hello",currentUser.getPhotoUrl().toString());
+
+        navigationView =findViewById(R.id.nav_view);
+        View headerView=navigationView.getHeaderView(0);
+
+        nav_dp_header=(ImageView)headerView.findViewById(R.id.nav_dp_header);
+
+        TextView name=(TextView)headerView.findViewById(R.id.nav_name_txt);
+        name.setText(currentUser.getDisplayName());
+
         Glide.with(this).load(currentUser.getPhotoUrl().toString())
                 .placeholder(R.drawable.avatar)
                 .into((ImageView) headerView.findViewById(R.id.nav_dp_header));
 
 
+        nav_dp_header.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("Hello","1");
+                Intent khuljasimsim=new Intent(Dashboard.this,Account_info.class);
+                startActivity(khuljasimsim);
+            }
+        });
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -104,12 +121,13 @@ public class Dashboard extends AppCompatActivity {
             }
 
         });
+
     }
 
     @Override
     public void onBackPressed() {
         if(drawer_layout.isDrawerOpen(GravityCompat.START)){
-             drawer_layout.closeDrawer(GravityCompat.START);
+            drawer_layout.closeDrawer(GravityCompat.START);
         }
         else{
             super.onBackPressed();

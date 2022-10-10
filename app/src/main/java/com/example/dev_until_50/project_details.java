@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.lang.reflect.Array;
 import java.util.Calendar;
 
 public class project_details extends AppCompatActivity {
@@ -26,6 +27,8 @@ public class project_details extends AppCompatActivity {
     EditText title_pr_details,short_desc,City,country_name;
     Button start_date_btn,end_date_btn,save;
     TextView start_date_txt,end_date_txt;
+
+    AutoCompleteTextView autoCompleteTxt;
     AutoCompleteTextView ac;
     ArrayAdapter<String> adapterItems;
 
@@ -36,11 +39,14 @@ public class project_details extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_project_details);
 
+
         getSupportActionBar().setTitle("Add Project");
 
-        ac= findViewById(R.id.ac);
+//        autoCompleteTxt= findViewById(R.id.autoCompleteTxt);
         ArrayAdapter adapterItems = new ArrayAdapter(project_details.this, android.R.layout.simple_list_item_1,State);
-        adapterItems = new ArrayAdapter<String>(this,R.layout.list_item,State);
+        ac= findViewById(R.id.ac);
+
+//        adapterItems = new ArrayAdapter<String>(project_details.this,R.layout);
 
         ac.setAdapter(adapterItems);
 
