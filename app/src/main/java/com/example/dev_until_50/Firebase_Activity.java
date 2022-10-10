@@ -31,9 +31,11 @@ public class Firebase_Activity extends AppCompatActivity {
                     if (currentUser!= null) {
                         Log.d("Hello", "Logged in");
                         startActivity(Dashboard_intent);
+                        finish();
                     } else {
                         Log.d("Hello", "Not Logged in");
                         startActivity(Sign_up_intent);
+                        finish();
                     }
 
             }

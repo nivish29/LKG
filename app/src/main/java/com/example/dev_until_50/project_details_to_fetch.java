@@ -63,7 +63,7 @@ public class project_details_to_fetch {
         this.country = country;
     }
 
-    public project_details_to_fetch(String projectname, String shortdesc, String city, String state, String startdate, String enddate, String country) {
+    public project_details_to_fetch(String projectname, String shortdesc, String city, String state, String country) {
         this.projectname = projectname;
         this.shortdesc = shortdesc;
         this.city = city;

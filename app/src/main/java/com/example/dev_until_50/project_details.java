@@ -1,8 +1,10 @@
 package com.example.dev_until_50;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -14,6 +16,10 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.lang.reflect.Array;
 import java.util.Calendar;
@@ -31,23 +37,38 @@ public class project_details extends AppCompatActivity {
     AutoCompleteTextView autoCompleteTxt;
     AutoCompleteTextView ac;
     ArrayAdapter<String> adapterItems;
-
-
+    FirebaseAuth mAuth;
+    FirebaseDatabase database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_project_details);
 
+        mAuth = FirebaseAuth.getInstance();
+        database= FirebaseDatabase.getInstance();
+
+        FirebaseUser currentUser = mAuth.getCurrentUser();
 
         getSupportActionBar().setTitle("Add Project");
 
         EditText title=findViewById(R.id.title_pr_details);
         EditText dec=findViewById(R.id.short_desc);
         EditText city=findViewById(R.id.city_name);
-        EditText ac=findViewById(R.id.ac);
+        EditText state=findViewById(R.id.State);
         EditText country_name=findViewById(R.id.country_name);
 
+        AppCompatButton save_btn=findViewById(R.id.save);
+
+        Intent ok=new Intent(this,Dashboard.class);
+        save_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                project_details_to_fetch project=new project_details_to_fetch(title.getText().toString(),dec.getText().toString(),city.getText().toString(),state.getText().toString(),country_name.getText().toString());
+                database.getReference().child("Users").child(currentUser.getUid()).child("Projects").setValue(project);
+                startActivity(ok);
+            }
+        });
 
 
 //        autoCompleteTxt= findViewById(R.id.autoCompleteTxt);

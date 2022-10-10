@@ -17,7 +17,9 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -25,6 +27,8 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
+
+import org.w3c.dom.Text;
 
 import java.io.Console;
 
@@ -42,6 +46,7 @@ public class Dashboard extends AppCompatActivity {
 
     FirebaseDatabase database;
 
+
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(drawerToggle.onOptionsItemSelected(item)){
@@ -54,6 +59,7 @@ public class Dashboard extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+
 
 
 
@@ -88,7 +94,6 @@ public class Dashboard extends AppCompatActivity {
             Log.d("Hello","Image error");
         }
 
-
         nav_dp_header.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -100,10 +105,10 @@ public class Dashboard extends AppCompatActivity {
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                Log.d("Hello",item.toString());
+
                 switch (item.getItemId()){
                     case R.id.all_project:
-                        Intent ap=new Intent(Dashboard.this,all_projects.class);
+                        Intent ap=new Intent(Dashboard.this,project_after.class);
                         startActivity(ap);
 
                     case R.id.pending:
@@ -111,7 +116,8 @@ public class Dashboard extends AppCompatActivity {
                         startActivity(pendingint);
 
                     case R.id.Logout:
-                        Log.d("Hello","Logged out clicked");
+                        Log.d("Hello","Signed out");
+
 
                 }
                 return false;
