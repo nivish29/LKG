@@ -2,7 +2,7 @@ package com.example.dev_until_50;
 
 public class Users {
 
-    private String UserId, name,emailid,dp;
+    private String UserId, name,emailid,dp,phone_number;
 
     public String getDp() {
         return dp;
@@ -12,8 +12,16 @@ public class Users {
         this.dp = dp;
     }
 
-    public Users(){
+    public String getPhone_number() {
+        return phone_number;
+    }
 
+    public void setPhone_number(String phone_number) {
+        this.phone_number = phone_number;
+    }
+
+    public Users(){
+        phone_number="null";
     }
 
     public Users(String userId, String name, String emailid) {

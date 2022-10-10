@@ -101,6 +101,8 @@ public class signInActivity extends AppCompatActivity {
                             users.setUserId(user.getUid());
                             users.setName(user.getDisplayName());
                             users.setEmailid(user.getEmail());
+                            users.setPhone_number(users.getPhone_number());
+                            users.setDp(user.getPhotoUrl().toString());
                             Intent kuchbhi = new Intent(signInActivity.this,Dashboard.class);
                             startActivity(kuchbhi);
                             database.getReference().child("Users").child(user.getUid()).setValue(users);
