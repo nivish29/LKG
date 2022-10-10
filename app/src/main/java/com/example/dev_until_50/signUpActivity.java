@@ -36,7 +36,7 @@ public class signUpActivity extends AppCompatActivity {
     FirebaseDatabase database;
     Intent kuchbhi;
 
-    EditText email_edt,pass_edt;
+    EditText email_edt,first_name,last_name,phone_edt,pass_edt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -158,7 +158,22 @@ public class signUpActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
                         if (!task.isSuccessful()) {
-                            Log.e("Hello", task.getException().toString());
+                            email_edt=findViewById(R.id.email_edt);
+                            first_name=findViewById(R.id.firstname_edt);
+                            last_name=findViewById(R.id.lastname_edt);
+                            phone_edt=findViewById(R.id.phonenumber_edt);
+                            pass_edt=findViewById(R.id.password_edt);
+
+
+
+                            Users users = new Users();
+                            users.setUserId(first_name.getText().toString()+last_name.getText().toString()+phone_edt.getText().toString());
+                            users.setName(first_name.getText().toString()+last_name.getText().toString());
+                            users.setEmailid(first_name.getText().toString()+last_name.getText().toString());
+                            users.setPhone_number(phone_edt.getText().toString());
+                            Log.d("Hello",database.getReference().child("users").child("name").get().toString());
+                            database.getReference().child("Users").child(users.getUserId()).setValue(users);
+
                         } else {
                             startActivity(kuchbhi);
                             finish();

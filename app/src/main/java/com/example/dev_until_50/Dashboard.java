@@ -24,6 +24,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.Console;
 
@@ -39,6 +40,7 @@ public class Dashboard extends AppCompatActivity {
     ActionBarDrawerToggle drawerToggle;
     FirebaseAuth mAuth;
 
+    FirebaseDatabase database;
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -57,9 +59,9 @@ public class Dashboard extends AppCompatActivity {
 
         mAuth=FirebaseAuth.getInstance();
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        Log.d("Hello",currentUser.getDisplayName());
 
-
+        FirebaseUser user=mAuth.getCurrentUser();
+        Log.d("Hello",user.getDisplayName());
         add_project_fab=findViewById(R.id.add_project_fab);
         drawer_layout=findViewById(R.id.drawer_layout);
 
@@ -69,7 +71,6 @@ public class Dashboard extends AppCompatActivity {
         drawerToggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        Log.d("Hello",currentUser.getPhotoUrl().toString());
 
         navigationView =findViewById(R.id.nav_view);
         View headerView=navigationView.getHeaderView(0);
@@ -78,10 +79,14 @@ public class Dashboard extends AppCompatActivity {
 
         TextView name=(TextView)headerView.findViewById(R.id.nav_name_txt);
         name.setText(currentUser.getDisplayName());
-
+        try {
         Glide.with(this).load(currentUser.getPhotoUrl().toString())
                 .placeholder(R.drawable.avatar)
                 .into((ImageView) headerView.findViewById(R.id.nav_dp_header));
+        }
+        catch (Exception e){
+            Log.d("Hello","Image error");
+        }
 
 
         nav_dp_header.setOnClickListener(new View.OnClickListener() {
