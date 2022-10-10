@@ -86,8 +86,6 @@ public class signUpActivity extends AppCompatActivity {
     int RC_SIGN_IN = 65;
 
     public void signIn() {
-
-
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }

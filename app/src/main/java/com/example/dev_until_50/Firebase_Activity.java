@@ -23,10 +23,10 @@ public class Firebase_Activity extends AppCompatActivity {
         Intent Dashboard_intent = new Intent(this, Dashboard.class);
         Intent Sign_up_intent=new Intent(this, signUpActivity.class);
         FirebaseUser currentUser = mAuth.getCurrentUser();
-
-//        handler.postDelayed(new Runnable() {
-//            // check if user already logged in or not
-//            public void run() {
+        getSupportActionBar().hide();
+        handler.postDelayed(new Runnable() {
+            // check if user already logged in or not
+            public void run() {
 
                     if (currentUser!= null) {
                         Log.d("Hello", "Logged in");
@@ -37,6 +37,6 @@ public class Firebase_Activity extends AppCompatActivity {
                     }
 
             }
-//        }, 2000);
-//    }
+        }, 2000);
+    }
 }

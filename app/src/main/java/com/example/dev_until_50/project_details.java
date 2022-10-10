@@ -42,21 +42,31 @@ public class project_details extends AppCompatActivity {
 
         getSupportActionBar().setTitle("Add Project");
 
+        EditText title=findViewById(R.id.title_pr_details);
+        EditText dec=findViewById(R.id.short_desc);
+        EditText city=findViewById(R.id.city_name);
+        EditText ac=findViewById(R.id.ac);
+        EditText country_name=findViewById(R.id.country_name);
+
+
+
 //        autoCompleteTxt= findViewById(R.id.autoCompleteTxt);
-        ArrayAdapter adapterItems = new ArrayAdapter(project_details.this, android.R.layout.simple_list_item_1,State);
-        ac= findViewById(R.id.ac);
+//        ArrayAdapter adapterItems = new ArrayAdapter(project_details.this, android.R.layout.simple_list_item_1,State);
+//        ac= findViewById(R.id.ac);
 
 //        adapterItems = new ArrayAdapter<String>(project_details.this,R.layout);
 
-        ac.setAdapter(adapterItems);
-
-        ac.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String x = parent.getItemAtPosition(position).toString();
-                Toast.makeText(project_details.this, "Item: "+x, Toast.LENGTH_SHORT).show();
-            }
-        });
+//        ac.setAdapter(adapterItems);
+//
+//        ac.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                String x = parent.getItemAtPosition(position).toString();
+//                Toast.makeText(project_details.this, "Item: "+x, Toast.LENGTH_SHORT).show();
+//
+//
+//            }
+//        });
 
 //        start_date_btn.setOnClickListener(new View.OnClickListener() {
 //            @Override
