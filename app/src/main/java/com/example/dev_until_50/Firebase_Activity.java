@@ -10,8 +10,6 @@ import android.util.Log;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import java.io.Console;
-
 public class Firebase_Activity extends AppCompatActivity {
 
     FirebaseAuth mAuth;
@@ -23,7 +21,7 @@ public class Firebase_Activity extends AppCompatActivity {
         mAuth=FirebaseAuth.getInstance();
         Handler handler = new Handler();
         Intent Dashboard_intent = new Intent(this, Dashboard.class);
-        Intent Sign_up_intent=new Intent(this,signInActivity.class);
+        Intent Sign_up_intent=new Intent(this, signUpActivity.class);
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
 //        handler.postDelayed(new Runnable() {

@@ -8,25 +8,26 @@
         <entry key="..\:/Users/dell/AndroidStudioProjects/LKG/app/src/main/res/layout/activity_all_projects.xml" value="0.25" />
         <entry key="..\:/Users/dell/AndroidStudioProjects/LKG/app/src/main/res/layout/activity_dashboard.xml" value="0.25" />
         <entry key="..\:/Users/dell/AndroidStudioProjects/LKG/app/src/main/res/layout/activity_firebase.xml" value="0.25" />
-        <entry key="..\:/Users/dell/AndroidStudioProjects/LKG/app/src/main/res/layout/activity_project_details.xml" value="0.25" />
+        <entry key="..\:/Users/dell/AndroidStudioProjects/LKG/app/src/main/res/layout/activity_project_details.xml" value="0.264" />
         <entry key="..\:/Users/dell/AndroidStudioProjects/LKG/app/src/main/res/layout/activity_sign_in.xml" value="0.25" />
+        <entry key="..\:/Users/dell/AndroidStudioProjects/LKG/app/src/main/res/layout/activity_sign_up.xml" value="0.2" />
+        <entry key="..\:/Users/dell/AndroidStudioProjects/LKG/app/src/main/res/layout/fragment_second2.xml" value="0.12760416666666666" />
         <entry key="..\:/Users/dell/AndroidStudioProjects/LKG/app/src/main/res/layout/header.xml" value="0.264" />
+        <entry key="..\:/Users/dell/AndroidStudioProjects/LKG/app/src/main/res/layout/list_item.xml" value="0.1265625" />
+        <entry key="..\:/Users/dell/AndroidStudioProjects/LKG/app/src/main/res/layout/row_project.xml" value="0.12760416666666666" />
+        <entry key="..\:/Users/dell/AndroidStudioProjects/LKG/app/src/main/res/menu/nav_item.xml" value="0.12760416666666666" />
         <entry key="..\:/Users/nihal/LKG/app/src/main/res/drawable/continue_but.xml" value="0.1765" />
         <entry key="..\:/Users/nihal/LKG/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.143" />
         <entry key="..\:/Users/nihal/LKG/app/src/main/res/drawable/ic_page_file_icon.xml" value="0.143" />
         <entry key="..\:/Users/nihal/LKG/app/src/main/res/drawable/ic_project_icon.xml" value="0.143" />
         <entry key="..\:/Users/nihal/LKG/app/src/main/res/drawable/rounded_bottom_nav.xml" value="0.1765" />
-        <entry key="..\:/Users/nihal/LKG/app/src/main/res/layout/activity_account_info.xml" value="0.25" />
         <entry key="..\:/Users/nihal/LKG/app/src/main/res/layout/activity_dashboard.xml" value="0.25" />
         <entry key="..\:/Users/nihal/LKG/app/src/main/res/layout/activity_firebase.xml" value="0.25" />
         <entry key="..\:/Users/nihal/LKG/app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="..\:/Users/nihal/LKG/app/src/main/res/layout/activity_project_details.xml" value="0.264" />
+        <entry key="..\:/Users/nihal/LKG/app/src/main/res/layout/activity_project_details.xml" value="0.2359375" />
         <entry key="..\:/Users/nihal/LKG/app/src/main/res/layout/activity_sign_in.xml" value="0.25" />
         <entry key="..\:/Users/nihal/LKG/app/src/main/res/layout/activity_user_details.xml" value="0.2359375" />
-        <entry key="..\:/Users/nihal/LKG/app/src/main/res/layout/content_all_projects.xml" value="0.25" />
-        <entry key="..\:/Users/nihal/LKG/app/src/main/res/layout/content_pending.xml" value="0.25" />
         <entry key="..\:/Users/nihal/LKG/app/src/main/res/layout/header.xml" value="0.24895833333333334" />
-        <entry key="..\:/Users/nihal/LKG/app/src/main/res/layout/row_project.xml" value="0.24895833333333334" />
         <entry key="..\:/Users/nihal/LKG/app/src/main/res/menu/menu_botton.xml" value="0.24895833333333334" />
         <entry key="..\:/Users/nihal/LKG/app/src/main/res/menu/menu_button.xml" value="0.24895833333333334" />
         <entry key="..\:/Users/nihal/LKG/app/src/main/res/menu/nav_item.xml" value="0.24895833333333334" />

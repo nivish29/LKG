@@ -9,8 +9,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
-import com.google.android.gms.auth.api.identity.BeginSignInRequest;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -18,7 +20,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -26,18 +27,24 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class signInActivity extends AppCompatActivity {
+public class signUpActivity extends AppCompatActivity {
 
     GoogleSignInClient mGoogleSignInClient;
     FirebaseAuth auth;
     Button googlesignup_btn;
     FirebaseDatabase database;
+    Intent kuchbhi;
 
+    EditText email_edt,pass_edt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_in);
+        setContentView(R.layout.activity_sign_up);
 
+        kuchbhi = new Intent(signUpActivity.this,Dashboard.class);
+
+        email_edt=findViewById(R.id.email_edt);
+        pass_edt=findViewById(R.id.password_edt);
         googlesignup_btn = findViewById(R.id.googlesignup_btn);
 
         googlesignup_btn.setOnClickListener(new View.OnClickListener() {
@@ -50,13 +57,11 @@ public class signInActivity extends AppCompatActivity {
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                signOut();
+                sign_up();
             }
         });
         getSupportActionBar().hide();
 
-// ...
-// Initialize Firebase Auth
         auth = FirebaseAuth.getInstance();
         database=FirebaseDatabase.getInstance();
 
@@ -70,6 +75,8 @@ public class signInActivity extends AppCompatActivity {
     int RC_SIGN_IN = 65;
 
     public void signIn() {
+
+
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
@@ -95,7 +102,6 @@ public class signInActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-
                             FirebaseUser user =auth.getCurrentUser();
                             Users users = new Users();
                             users.setUserId(user.getUid());
@@ -103,7 +109,6 @@ public class signInActivity extends AppCompatActivity {
                             users.setEmailid(user.getEmail());
                             users.setPhone_number(users.getPhone_number());
                             users.setDp(user.getPhotoUrl().toString());
-                            Intent kuchbhi = new Intent(signInActivity.this,Dashboard.class);
                             startActivity(kuchbhi);
                             database.getReference().child("Users").child(user.getUid()).setValue(users);
                         }
@@ -126,6 +131,27 @@ public class signInActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         Log.d("Hello","Signed_out");
+                    }
+                });
+    }
+
+    public void sign_up(){
+
+
+        String email=email_edt.getText().toString();
+        String password=pass_edt.getText().toString();
+
+        auth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+
+                        if (!task.isSuccessful()) {
+                            Log.e("Hello", task.getException().toString());
+                        } else {
+                            startActivity(kuchbhi);
+                            finish();
+                        }
                     }
                 });
     }

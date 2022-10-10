@@ -5,7 +5,6 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -30,11 +29,8 @@ import java.io.Console;
 
 public class Dashboard extends AppCompatActivity {
 
-    RecyclerView recyclerView;
-
     FloatingActionButton add_project_fab;
     GoogleSignInClient mGoogleSignInClient;
-    ImageView nav_dp_header;
 
     DrawerLayout drawer_layout;
     NavigationView navigationView;
@@ -73,14 +69,16 @@ public class Dashboard extends AppCompatActivity {
         drawer_layout.addDrawerListener(drawerToggle);
         drawerToggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+        Log.d("Hello",currentUser.getPhotoUrl().toString());
         Glide.with(this).load(currentUser.getPhotoUrl().toString())
                 .placeholder(R.drawable.avatar)
-                .into((ImageView) headerView.findViewById(R.id.nav_dp));
+                .into((ImageView) headerView.findViewById(R.id.nav_dp_header));
+
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                Log.d("Hello",item.toString());
                 switch (item.getItemId()){
                     case R.id.all_project:
                         Intent ap=new Intent(Dashboard.this,all_projects.class);
@@ -98,27 +96,13 @@ public class Dashboard extends AppCompatActivity {
             }
         });
 
+        Intent prdetails = new Intent(this,project_details.class);
         add_project_fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-            }
-        });
-
-        add_project_fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent prdetails = new Intent(Dashboard.this,project_details.class);
                 startActivity(prdetails);
             }
-        });
 
-        nav_dp_header.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent nav_to_ac_info = new Intent(Dashboard.this,Account_info.class);
-                startActivity(nav_to_ac_info);
-            }
         });
     }
 

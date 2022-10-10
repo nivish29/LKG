@@ -51,7 +51,7 @@
             android:name=".user_details"
             android:exported="false" />
         <activity
-            android:name=".signInActivity"
+            android:name=".signUpActivity"
             android:exported="true" />
 
         <meta-data
